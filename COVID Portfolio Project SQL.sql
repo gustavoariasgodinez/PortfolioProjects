@@ -176,7 +176,7 @@ ORDER BY
 SELECT
    location,
    population,
-   MAX(CAST(total_deaths AS INT)) AS TotalDeathCount 	--We need to coerce total_deaths from nvarchar to integer (INT)
+   MAX(CAST(total_deaths AS INT)) AS TotalDeathCount --We need to coerce total_deaths from nvarchar to integer (INT)
 ,
    MAX((total_deaths / population))*100 AS PercentPopulationDead 
 FROM
@@ -194,7 +194,7 @@ ORDER BY
 SELECT
    location,
    population,
-   MAX(CAST(total_deaths_per_million AS FLOAT)) AS TotalDeathsPerMillion 	--We need to coerce total_deaths_per_million from nvarchar to integer (INT)
+   MAX(CAST(total_deaths_per_million AS FLOAT)) AS TotalDeathsPerMillion --We need to coerce total_deaths_per_million from nvarchar to integer (INT)
 FROM
    PortfolioProject..CovidDeaths 
 WHERE
@@ -253,15 +253,19 @@ ORDER BY
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
 OVERALL CONCLUSIONS:
-1) Over 260 million of COVID-19 cases have been reported since the pandemic started. About 5 million people have passed as a 
-consequence of this desease.
+1) Over 260 million of COVID-19 cases have been reported since the pandemic started. About 5 million people have passed as a consequence of this desease.
+
 2) To date (December 2021), Asia is the continent with the highest cumulative COVID-19 cases, reaching over 82 million.
 This is true when we consider North and South America as separate continents. On the other hand, the American continent 
 should be consider as the most affected with over 98 million of positive cases.
+
 3) Europe presents the highest total death count, with over 1.4 million deaths, followed by Asia (1.2 million), South America
 (1.1 million), North America (1.1 million), Africa(0.2 million), and Oceania (0.003 million).
+
 4) Peru (South America) has the highest mortality rate with 6,038 deaths per million.
+
 5) In Costa Rica, total cases amount up to five hundred thousand, representing the 11% of the entire population.
+
 By December 7th 2021, the country reported about seven thousand deaths.
 */
 ------------------------------------------------------------------------------END---------------------------------------------------------------------------------------------------------
