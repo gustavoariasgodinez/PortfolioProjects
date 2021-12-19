@@ -2,10 +2,7 @@
 title: "Testing drug effects on blood pressure"
 subtitle: "Gustavo Arias Godínez"
 author: "M.Sc. Biologist | Data Analyst"
-output:
-  html_document:
-    toc: True
-    toc_float: True
+output: rmarkdown::github_document
 ---
 
 ```{r setup, include=FALSE}
