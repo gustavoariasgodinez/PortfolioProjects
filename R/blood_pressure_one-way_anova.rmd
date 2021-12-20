@@ -4,8 +4,7 @@ subtitle: "Gustavo Arias Godínez"
 author: "M.Sc. Biologist | Data Analyst"
 output:
   html_document:
-    toc: True
-    toc_float: True
+    keep_md: TRUE
 ---
 
 ```{r setup, include=FALSE}
