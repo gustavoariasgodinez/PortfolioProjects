@@ -281,7 +281,7 @@ library(DT)        # Create data tables</code></pre>
 <div id="import-data" class="section level1">
 <h1>4. Import data</h1>
 <p>Here, we will import our data set as a Tibble, an special type of Data Frame given by the tidyverse package. For more information about Tibbles please review the following <a href="https://r4ds.had.co.nz/tibbles.html">documentation</a>.</p>
-<pre class="r"><code>data &lt;- read_csv(&quot;C:/Users/gusta/Documents/Portfolio/R/drug_effects.csv&quot;)
+<pre class="r"><code>data &lt;- read_csv(&quot;C:/Users/gusta/Documents/Portfolio/R/One-way ANOVA/drug_effects.csv&quot;)
 class(df)</code></pre>
 <pre><code>## [1] &quot;function&quot;</code></pre>
 </div>
@@ -308,13 +308,13 @@ class(df)</code></pre>
 <p>Our main goal is to implement an statistical analysis that enables researchers to determine which of the drug doses is most effective in reducing blood pressure in hypertensive patients.</p>
 <p>We can use a one-way Analysis of Variance (one-way ANOVA) to test for statistically significant differences among mean blood pressure (mmHg) between groups. The one-way ANOVA is an extension of the T-test but in a situation where there are more than two groups to be compared.</p>
 <p>In its simplest form, an ANOVA model can be represented as follows:</p>
-<p><span class="math inline">\(y_{ij}\)</span> = <span class="math inline">\(\mu_i\)</span> + <span class="math inline">\(\tau_i\)</span> + <span class="math inline">\(\epsilon_{ij}\)</span></p>
+<p><b>y<sub>ij</sub> = μ<sub>i</sub> + τ<sub>i</sub> + ε<sub>ij</sub></b></p>
 <p>Where:</p>
 <ul>
-<li><p><span class="math inline">\(y_{ij}\)</span>: is the observed response from experimental unit <span class="math inline">\(i\)</span> when receiving treatment <span class="math inline">\(j\)</span>.</p></li>
-<li><p><span class="math inline">\(\mu_i\)</span>: overall mean value,</p></li>
-<li><p><span class="math inline">\(\tau_i\)</span>: treatment effect, and</p></li>
-<li><p><span class="math inline">\(\epsilon_{ij}\)</span>: error</p></li>
+<li><p><b>y<sub>ij</sub></b>: is the observed response from experimental unit <strong><em>i</em></strong> when receiving treatment <strong><em>j</em></strong>.</p></li>
+<li><p><b>μ<sub>i</sub></b>: overall mean value,</p></li>
+<li><p><b>τ<sub>i</sub></b>: treatment effect, and</p></li>
+<li><p><b>ε<sub>ij</sub></b>: error</p></li>
 </ul>
 </div>
 <div id="data-preparation" class="section level1">
@@ -328,8 +328,8 @@ datatable(data = data,
           caption = &#39;Table 1. Blood pressure (mmHg) data from group-randomly-assigned hypertensive patients treated with four drug doses including a no dose (control/placebo) treatment.&#39;,
           colnames = c(&quot;Group&quot;,
                        &quot;Blood pressure (mmHg))&quot;))</code></pre>
-<div id="htmlwidget-928538690868bf0621f3" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-928538690868bf0621f3">{"x":{"filter":"none","caption":"<caption>Table 1. Blood pressure (mmHg) data from group-randomly-assigned hypertensive patients treated with four drug doses including a no dose (control/placebo) treatment.<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40"],["control","control","control","control","control","control","control","control","control","control","low_dose","low_dose","low_dose","low_dose","low_dose","low_dose","low_dose","low_dose","low_dose","low_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","high_dose","high_dose","high_dose","high_dose","high_dose","high_dose","high_dose","high_dose","high_dose","high_dose"],[155,166,173,157,163,172,164,159,163,182,152,155,162,143,151,148,142,151,147,148,139,126,141,145,142,139,133,132,123,121,125,123,111,122,129,131,122,118,124,126]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Group<\/th>\n      <th>Blood pressure (mmHg))<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3eaf03872ce6bbf267c1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3eaf03872ce6bbf267c1">{"x":{"filter":"none","caption":"<caption>Table 1. Blood pressure (mmHg) data from group-randomly-assigned hypertensive patients treated with four drug doses including a no dose (control/placebo) treatment.<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40"],["control","control","control","control","control","control","control","control","control","control","low_dose","low_dose","low_dose","low_dose","low_dose","low_dose","low_dose","low_dose","low_dose","low_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","medium_dose","high_dose","high_dose","high_dose","high_dose","high_dose","high_dose","high_dose","high_dose","high_dose","high_dose"],[155,166,173,157,163,172,164,159,163,182,152,155,162,143,151,148,142,151,147,148,139,126,141,145,142,139,133,132,123,121,125,123,111,122,129,131,122,118,124,126]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Group<\/th>\n      <th>Blood pressure (mmHg))<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="summary" class="section level1">
 <h1>8. Summary</h1>
@@ -341,8 +341,8 @@ datatable(data = data,
 datatable(data = sts,
           options = list(pageLength = 5),
           caption = &#39;Table 2. Mean (± Standard deviation) blood pressure (mmHg) of group-randomly assined hypertensive patients treated with four drug doses including a no dose (control/placebo) treatment.&#39;)</code></pre>
-<div id="htmlwidget-146a3a4aa0ace50b42a2" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-146a3a4aa0ace50b42a2">{"x":{"filter":"none","caption":"<caption>Table 2. Mean (± Standard deviation) blood pressure (mmHg) of group-randomly assined hypertensive patients treated with four drug doses including a no dose (control/placebo) treatment.<\/caption>","data":[["1","2","3","4"],["control","high_dose","low_dose","medium_dose"],["bp","bp","bp","bp"],[10,10,10,10],[165.4,123.1,149.9,134.1],[8.235,5.626,5.82,8.452]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>group<\/th>\n      <th>variable<\/th>\n      <th>n<\/th>\n      <th>mean<\/th>\n      <th>sd<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cda90d2df4ee621169c2" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cda90d2df4ee621169c2">{"x":{"filter":"none","caption":"<caption>Table 2. Mean (± Standard deviation) blood pressure (mmHg) of group-randomly assined hypertensive patients treated with four drug doses including a no dose (control/placebo) treatment.<\/caption>","data":[["1","2","3","4"],["control","high_dose","low_dose","medium_dose"],["bp","bp","bp","bp"],[10,10,10,10],[165.4,123.1,149.9,134.1],[8.235,5.626,5.82,8.452]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>group<\/th>\n      <th>variable<\/th>\n      <th>n<\/th>\n      <th>mean<\/th>\n      <th>sd<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":[3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="lets-take-a-first-look" class="section level1">
 <h1>9. Let’s take a first look</h1>
